@@ -35,3 +35,6 @@ Line number: 1
 What error means: You'll see this error when the code refers to a class or module that it can't find, often because the code doesn't include require, which instructs the Ruby file to load the class. In this case, we haven't ininitalised that class or method yet.
 
 Solve error? : Initialise the class
+
+
+What is RSPec? : A testing framework for Ruby that allows us to create tests for our code.
