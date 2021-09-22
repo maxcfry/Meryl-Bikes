@@ -1,5 +1,7 @@
+require_relative 'bike'
+
 class DockingStation
     def release_bike
-    #     return true if bike.to_i >= 1
+      Bike.new
     end
 end
