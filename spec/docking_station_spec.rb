@@ -48,5 +48,11 @@ describe DockingStation do
     expect(station.release_bike).to eq bike1
   end
 
+  it "has default capacity" do 
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end 
+  # it "when new DockingStation is called, capacity can be specified" do
+  #   expect(DockingStation.new(25)).to eq 25
+  # end
 
 end
