@@ -8,7 +8,8 @@ class DockingStation
     attr_reader :bike
 
     def release_bike
-        Bike.new
+        raise StandardError.new "No bikes available" unless @bike
+        @bike
     end
 
     def dock(bike)
