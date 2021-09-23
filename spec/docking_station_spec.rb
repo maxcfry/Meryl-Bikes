@@ -11,11 +11,17 @@ describe DockingStation do
   it { is_expected.to respond_to(:dock).with(1).argument }
   
   it { is_expected.to respond_to :bike}
-  
-  # it { is_expected.to respond_to :dock_bike}
 
-  # it "docks bike at docking station" do 
-  #   bike = DockingStation.new 
-  #   expect(bike.dock_bike(1)).to(eq(@docked_bike = 1))
-  # end
+  it "docks bike at docking station" do 
+    station = DockingStation.new
+    bike = Bike.new
+    expect(station.dock(bike)).to(eq(bike))
+  end
+
+  it "shows a docked bike" do
+    station = DockingStation.new
+    bike = Bike.new
+    station.dock(bike)
+    expect(station.bike).to eq bike
+  end
 end
