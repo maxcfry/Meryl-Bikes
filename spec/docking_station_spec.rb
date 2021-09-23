@@ -34,7 +34,7 @@ describe DockingStation do
 
   it "raises an exception when a bike is added to a docking station with 20 bikes inside" do
     station = DockingStation.new
-    20.times { station.dock Bike.new }
+    DockingStation::DEFAULT_CAPACITY.times { station.dock Bike.new }
     expect { station.dock Bike.new }.to raise_error("Station is full")
   end
 
