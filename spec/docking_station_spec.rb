@@ -32,9 +32,21 @@ describe DockingStation do
 
   end
 
-  it "raises an exception when a bike is added to a docking station with 1 bike inside" do
-    subject.dock(Bike.new)
-    expect { subject.dock Bike.new }.to raise_error("Station is full")
+  it "raises an exception when a bike is added to a docking station with 20 bikes inside" do
+    station = DockingStation.new
+    20.times { station.dock Bike.new }
+    expect { station.dock Bike.new }.to raise_error("Station is full")
   end
+
+  it "releases an already existing working bike" do 
+    station = DockingStation.new
+    bike1 = Bike.new
+    bike2 = Bike.new
+    station.dock(bike1)
+    station.dock(bike2)
+    station.release_bike
+    expect(station.release_bike).to eq bike1
+  end
+
 
 end
