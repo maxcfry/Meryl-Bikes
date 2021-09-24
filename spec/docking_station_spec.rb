@@ -56,10 +56,17 @@ describe DockingStation do
   # end
 
   # I'd like docking stations not to release broken bikes
-  it "doesn't release broken bikes" do
+  # it "doesn't release broken bikes" do
+  #   station = DockingStation.new
+  #   bike = Bike.new
+  #   station.dock(bike.broken)
+  #   expect { station.release_bike }.to raise_error("No bikes available")
+  # end
+  it "doesn't release bike from docking station if bike is broken" do
     station = DockingStation.new
-    bike = Bike.new
-    station.dock(bike.broken)
+    bike1 = Bike.new
+    bike1.report_broken 
+    station.dock(bike1)
     expect { station.release_bike }.to raise_error("No bikes available")
   end
 

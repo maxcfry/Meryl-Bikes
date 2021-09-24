@@ -12,8 +12,15 @@ describe Bike do
   # it "tells us a bike is broken" do
   #   station = DockingStation.new
   #   bike = Bike.new
-  #   expect(station.dock(bike.broken)).to eq "You have returned a broken bike"
+  #   bike.report_broken
+  #   expect(station.dock(bike)).to eq bike
   # end
+  it 'can be reported broken' do
+    subject.report_broken 
+
+    expect(subject).to be_broken
+  end
+
 
 end
 
